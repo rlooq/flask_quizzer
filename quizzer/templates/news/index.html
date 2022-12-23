@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block title %}Latest News{% endblock %} 
+
+
+
+
+
+<!-- NEWS HEADER, WITH NEW POST-->
+{% block content %}
+
+  {% if g.user['role'] == 'admin' %}
+  <p class="has-text-right">
+    <a class="button is-success is-small has-text-weight-bold" href="{{ url_for('news.create') }}">New Post</a>
+  </p>
+  <br>
+       
+  {% endif %}</p>
+
+
+<!-- POSTS -->  
+{% for post in posts %}
+
+
+<article class="message">
+  <div class="message-body">    
+    <h1 class="title">{{ post['title'] }}</h1>
+    
+    {% for item in post['body'].split('\n') %}
+    {% if loop.index == 1 %}
+    <p class="is-readable has-text-justified">{{ item }}</p>
+    {% else %}
+    <p class="is-readable has-text-justified pt-3">{{ item }}</p>
+    {% endif %}
+    {% endfor %}
+
+    <p class="has-text-right has-text-weight-bold is-readable is-blurred pt-2">
+      {{ post['username'] | capitalize }} on <time datetime="{{ post['created'].strftime('%Y-%m-%d') }}">{{ post['created'].strftime('%d %b %Y') }}</time>
+    </p>
+    
+    
+  {% if g.user['id'] == post['author_id'] %}
+  <div class="buttons is-centered is-small">
+    <form action="{{ url_for('news.delete', id=post['id']) }}" method="post">
+      <button class="button is-danger is-small has-text-weight-bold" type="submit" onclick="return confirm('Are you sure?');">Delete</button>
+    </form> 
+    <a class="button is-warning is-small has-text-weight-bold" href="{{ url_for('news.update', id=post['id']) }}">Edit</a>
+  </div>
+  {% endif %}
+
+
+</div>
+</article>
+
+
+
+
+{% endfor %}
+
+
+
+
+
+
+
+
+{% endblock content %}
+
+
+
+
+
+
+
+
+

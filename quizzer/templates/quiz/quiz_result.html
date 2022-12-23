@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Quiz Result
+{% endblock %}
+
+
+{% block content %}
+
+<h1 class="title">Your Result: {{ category }}</h1>
+
+<p class="subtitle has-text-right">The <strong>score</strong> is <strong>{{ score }}</strong> out of {{ questions | length }}</p>
+
+{% for question in questions %}
+<article class="message is-readable">
+      <div class="message-header is-dark">
+      <p><span class="has-text-bold">{{ loop.index }})</span> {{ question.prompt }}</p>
+      </div>
+      <div class="message-body">
+        {% for option in question.options %}
+        {% if option == question.correct == question.attempt %}
+        
+        <p>
+            <span class="has-text-weight-bold">{{ option }}</span>
+            <span class="icon-text">
+            <span class="icon"><i class="fas fa-check-square"></i></span>
+            </span>
+        </p>
+
+        {% elif question.attempt == option and not question.check_answer() %}
+        <p>
+          <span class="is-italic">{{ option }}</span>
+          <span class="icon-text">
+          <span class="icon"><i class="fas fa-times"></i></span>
+          </span>
+      </p>
+        
+        
+      {% else %}
+      <p>
+          <span>{{ option }}</span>
+      </p>
+            
+        {% endif %}
+        {% endfor %}
+      </div>
+    </article>
+    
+{% endfor %}
+
+
+
+
+{% endblock %}

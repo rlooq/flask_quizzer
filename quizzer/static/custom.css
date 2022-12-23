@@ -1,0 +1,88 @@
+/* Fonts */
+@font-face {
+    font-family: 'pt_serifregular';
+    src: url('/static/fonts/ptserif-regular-webfont.woff2') format('woff2'),
+         url('/static/fonts/ptserif-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'pt_serifitalic';
+    src: url('/static/fonts/ptserif-italic-webfont.woff2') format('woff2'),
+         url('/static/fonts/ptserif-italic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'pt_serifbold_italic';
+    src: url('/static/fonts/ptserif-bolditalic-webfont.woff2') format('woff2'),
+         url('/static/fonts/ptserif-bolditalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'pt_serifbold';
+    src: url('/static/fonts/ptserif-bold-webfont.woff2') format('woff2'),
+         url('/static/fonts/ptserif-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+:root {
+    --bg: ghostwhite;
+    --mid-bg: silver;
+  }
+  
+  
+  body {
+    background: var(--bg);
+  }
+
+  
+  .table {
+    background-color: #f5f5f5;
+  }
+
+
+  .message {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  }
+
+  .is-readable {
+    font-size: 1.1rem;
+  }
+
+  .is-blurred {
+    color: gray;
+    text-decoration-line: overline;
+}
+
+  .title {
+    font-family: 'pt_serifregular', serif;
+  }
+
+  .navbar-dropdown {
+    background: whitesmoke;
+  }
+
+
+  .button.is-danger {
+    background-color: rgb(167, 58, 58);
+  }
+
+  .button.is-success {
+    background-color: rgb(52, 95, 82);
+  }
+
+  html, .footer {
+    background: var(--mid-bg);
+  }
+
+
+
+  

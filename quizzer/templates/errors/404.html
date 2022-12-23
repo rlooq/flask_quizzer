@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}Page Not Found{% endblock %} 
+
+
+
+{% block content %}
+
+<article class="message">
+    <div class="message-header">
+    <p class="is-size-5 mx-4">PAGE NOT FOUND:
+    </p>
+    </div>
+    
+        <div class="message-body is-readable">    
+        
+        <p>
+        Sorry. This parrot is no more! He has ceased to be! He's expired and gone to meet his maker! 
+        He's a stiff! Bereft of life, he rests in peace! In other words, whatever you're looking 
+        for is not here. But if you go to my brother's pet shop in Bolton, 
+        he'll replace the parrot for you.</p>
+
+        
+    </div>
+</article>
+
+<div class="has-text-right">
+    <a href="{{ url_for('index') }}"><button class="button is-info">GO AWAY</button></a>
+</div>
+
+
+
+
+{% endblock %}

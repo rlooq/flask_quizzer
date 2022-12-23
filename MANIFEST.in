@@ -1,0 +1,4 @@
+include quizzer/schema.sql
+graft quizzer/static
+graft quizzer/templates
+global-exclude *.pyc

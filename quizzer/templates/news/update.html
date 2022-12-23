@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit Post{% endblock %}
+
+
+{% block content %}
+<h1 class="title">Editing: {{ post['title'] }}</h1>
+
+<form class="box" method="post">
+<div class="field">
+  <label class="label" for="title">Title</label>
+  <div class="control">
+    <input class="input" name="title" id="title" type="text" value="{{ request.form['title'] or post['title'] }}" required>
+  </div>
+</div>
+
+<div class="field">
+  <label class="label" for="body">Body</label>
+  <div class="control">
+    <textarea class="textarea" name="body" id="body">{{ request.form['body'] or post['body'] }}</textarea>
+  </div>
+</div>
+
+<div class="control is-right">
+  <button type="submit" class="button is-primary">Save</button>
+</div>
+</form>
+
+<div class="buttons is-right">
+  <form action="{{ url_for('news.delete', id=post['id']) }}" method="post">
+    <button class="button is-danger" type="submit" onclick="return confirm('Are you sure?');">Delete</button>
+  </form> 
+</div>
+
+
+{% endblock %}

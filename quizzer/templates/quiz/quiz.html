@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Quiz
+{% endblock %}
+
+
+{% block content %}
+
+
+<h1 class="title">Your Quiz: {{ category }}</h1>
+<p class="subtitle has-text-right">This quiz has <strong>{{ questions | length }} questions</strong>.</p>
+
+<form action="{{ url_for('quiz.quiz') }}" method="post">
+  {% for question in questions %}
+  <div class="message is-readable">
+    <div class="message-header is-dark">
+      <p><span class="has-text-bold">{{ loop.index }})</span> {{ question.prompt }}</p>
+    </div>
+    <div class="message-body">
+      {% for option in question.options %}
+      <input type="radio" name="{{ question.id }}" value="{{ option }}"> {{ option }}<br>
+      {% endfor %}
+    </div>
+  </div>
+{% endfor %}
+  
+  <div class="field has-text-right">
+    <p class="control">
+      <button class="button is-success" type="submit">Submit</button>
+    </p>
+  </div>
+    
+
+</form>
+    
+
+        
+
+    
+
+{% endblock %}
+
+

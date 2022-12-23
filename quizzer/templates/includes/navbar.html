@@ -1,0 +1,70 @@
+
+
+    <nav class="navbar is-fixed-top is-dark" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="{{ url_for('index') }}">
+          <img src="{{ url_for('static', filename='logo.png') }}" width="112" height="28">
+        </a>
+    
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+    
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item has-text-weight-bold" href="{{ url_for('index') }}">
+            News
+          </a>
+    
+          <a class="navbar-item has-text-weight-bold" href="{{ url_for('quiz.quiz_request') }}">
+            Take a Quiz
+          </a>
+
+    
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link has-text-weight-bold">
+              More
+            </a>
+    
+            <div class="navbar-dropdown">
+              <a class="navbar-item has-text-weight-bold" href="{{ url_for('news.about') }}">
+                About
+              </a>
+              <a href="{{ url_for('news.help') }}" class="navbar-item has-text-weight-bold">
+                Help
+              </a>
+              <a class="navbar-item has-text-weight-bold">
+                Report an issue
+              </a>
+            </div>
+          </div>
+        </div>
+    
+        <div class="navbar-end">
+          <div class="navbar-item">
+          
+            <div class="buttons">
+              {% if g.user %}
+              <a class="button is success is-light" href="{{ url_for('auth.profile') }}">{{ g.user['first_name'] }}</a>
+              <a class="button is-danger" href="{{ url_for('auth.logout') }}">
+              Log Out
+              </a>
+              {% else %}
+              <a class="button is-success" href="{{ url_for('auth.register') }}">
+                <strong>Register</strong>
+              </a>
+              <a class="button is-success is-light" href="{{ url_for('auth.login') }}">
+                Login
+              </a>
+              {% endif %}
+            </div>
+          
+          </div>
+        </div>
+      </div>
+    </nav>
+
+  </div>

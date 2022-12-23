@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}New Post{% endblock %}
+
+{% block content %}
+
+
+<h1 class="title">New Post</h1>
+<p class="subtitle">Write a new post for your <strong>Quizzer</strong> blog. 
+
+<form class="box" method="post">
+<div class="field">
+  <label class="label" for="title">Title</label>
+  <div class="control">
+    <input class="input" name="title" id="title" type="text" value="{{ request.form['title'] }}" placeholder="Title of your post" required>
+  </div>
+</div>
+
+<div class="field">
+  <label class="label" for="body">Body</label>
+  <div class="control">
+    <textarea class="textarea" name="body" id="body" placeholder="Write your post here">{{ request.form['body'] }}</textarea>
+  </div>
+</div>
+
+<div class="control">
+  <button type="submit" class="button is-primary">Save</button>
+</div>
+
+</form>
+
+
+
+{% endblock %}

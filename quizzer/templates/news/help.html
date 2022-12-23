@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}Help{% endblock %} 
+
+
+
+{% block content %}
+
+
+
+<article class="message">
+<div class="message-body is-readable">
+    <h1 class="title is-2">Help for Quizzers!</h1>
+
+    <h2 class="title is-3">Register, Login and Profile</h2>
+
+    <p>In order to use the quizzes on this site, you need to <a href="{{ url_for('auth.register') }}">register</a> first.
+    You only have to provide us with your name and a valid email. Your information won't be shared with anyone. No spam
+    from me either, except the occasional announcement when something big changes.</p><br>
+    
+    <p>After that, you will be redirected to the <a href="{{ url_for('auth.login') }}">Login</a> page. Just enter your 
+    username and password, and you're in.</p><br>
+    
+    <p>From that point forward, you can use those credentials to access the quizzes and your scores, which will be saved
+    on your profile page. To access your profile page, click on the red button that shows your name on the left of 
+    navigation bar (after you log in). Only <em>you</em> have have access to your profile page. Well, technically I could peek at it too,
+    it's a pain in the neck to get there, so don't worry. It's only your scores, anyway, nothing to be ashamed about.
+    In the future it would be nice to have a general scoreboard open to everyone, to make it more competitive, but 
+    we're not there yet.</p>
+    <br>
+    
+    <h2 class="title is-3">Take a Quiz</h2>
+
+    <p>It's simple. Click on the <a href="{{ url_for('quiz.quiz_request') }}">Take a Quiz</a> option on the navigatoin bar. This will
+        show you a drop-down menu to choose a quiz. Once selected, click on the <em>Submit</em> button and your quiz will appear.</p><br>
+    
+    <p>Select the correct option, click the Submit button at the end of the quiz, and you'll be shown your results. That's it!</p>
+    <br>
+
+    <h2 class="title is-3">Latest News</h2>
+
+    <p>This web app is a personal project, still in early stages, with very limited functionality. I keep working
+    on it whenever I can by adding new features and new quizzes.
+    </p><br>
+    
+    <p>If you want to stay up to date with the latest developments, be sure to check the <a href="{{ url_for('news.index') }}">News</a>
+    section. You can find a link on the navigation bar.</p>
+</div>
+</article>
+
+{% endblock %}

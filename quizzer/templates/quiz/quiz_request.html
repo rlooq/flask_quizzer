@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Take a Quiz{% endblock %} 
+
+
+
+{% block content %}
+
+
+
+
+<form class="box" method="post">
+
+    <h1 class="title">Take a Quiz</h1>
+    <p class="subtitle">You can choose one of these categories:</p>
+    
+    <div class="field is-horizontal">
+        <div class="field-label is-normal">
+            <label class="label" for="category">Quiz Category</label>
+        </div>
+        <div class="field-body">
+        <div class="control">
+            <div class="select">
+                <select name="category" id="category">
+                    {% for category in categories %}
+                    <option value="{{ category }}">{{ category }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        </div>
+    </div>
+    
+    
+    <div class="field">
+      <p class="control has-text-right">
+        <button class="button is-success" type="submit">Take this quiz</button>
+      </p>
+    </div>
+</form>
+
+
+
+{% endblock %}

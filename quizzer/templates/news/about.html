@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}About{% endblock %} 
+
+
+
+{% block content %}
+
+
+
+<article class="message">
+    
+<div class="message-body is-readable has-text-justified">
+    <h1 class="title has-text-centered">About Quizzers!</h1>
+    
+    <p><em>Quizzers!</em> is a little pet project of mine. <em>Who's that?</em> An English teacher on week days 
+    and a learner of <a target="_blank" href="https://www.python.org/">Python</a> 
+    at nights and weekends.</p><br>
+    
+    <p>Why am I doing this? While <a tartet="_blank" href="https://workspace.google.com/products/forms/">Google Forms</a> can be quite useful for quizzes, they're rather cumbersome 
+    to create and difficult to reuse at times. Plus you have very little control over their 
+    layout and behaviour.</p><br>
+    
+    <p>For a while now I've been thinking of putting together a <strong><a href="https://flask.palletsprojects.com/en/2.2.x/">
+    Flask</a></strong> app to make it easier, for me at least. So here we are.</p><br>
+    
+    <p>I don't have much time to deal with the complexities of CSS, so 
+    I turned to <strong><a target="_blank" href="https://bulma.io/">Bulma</strong></a>
+    for help with the styling. Nothing fancy as you can see, but enough to do the job.</p><br>
+
+    <p>So far, the <a href="{{ url_for('quiz.quiz_request') }}">quizzes</a> include multiple 
+    choice questions. You can test yourself and keep track of your scores. But hopefully, more will be added in due time.
+    Please, report any issues you find at this stage, your help is much appreciated.</p><br>
+    
+    <p>The goal is to fine-tune the app and add more variety of questions at some point in the future, while 
+    keeping it user friendly. Needless to say, I have a day job and a family which require much attention, so I have to
+    rely on the little time left after that.</p><br>
+    
+    <p>What else? Sometimes I see <a target="_blank" href="https://youtu.be/vnciwwsvNcc">dead parrots</a>. Lovely plumage, though.</p><br>
+</div>
+</article>
+
+{% endblock %}
