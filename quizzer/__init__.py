@@ -78,6 +78,9 @@ def create_app(test_config=None):
     from .quiz import quiz
     app.register_blueprint(quiz)
 
+    from . import contact
+    app.register_blueprint(contact.bp)
+    
     # telling the logger it has started
     app.logger.info(f"New app started in {app.config['ENVIRONMENT']}")
     

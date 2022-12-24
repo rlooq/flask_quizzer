@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact Form{% endblock %}
+
+{% block content %}
+
+
+<h1 class="title">Contact Form</h1>
+<p class="subtitle">Write your message below.</p>
+
+<form class="box" method="post">
+<div class="field">
+  <label class="label" for="subject">Subject</label>
+  <div class="control">
+    <input class="input" name="subject" id="subject" type="text" value="{{ request.form['subject'] }}" placeholder="Subject line of your message" required>
+  </div>
+</div>
+
+<div class="field">
+  <label class="label" for="body">Description</label>
+  <div class="control">
+    <textarea class="textarea" name="body" id="body" placeholder="Describe the issue">{{ request.form['body'] }}</textarea>
+  </div>
+</div>
+
+<div class="control">
+  <button type="submit" class="button is-primary">Send</button>
+</div>
+
+</form>
+
+
+
+{% endblock %}

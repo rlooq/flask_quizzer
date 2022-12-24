@@ -48,18 +48,18 @@ def get_categories():
     return sorted(list(categories))
 
 # VIEW FUNCTIONS
-@quiz.route("/quiz_request", methods=['GET', 'POST'])
+@quiz.route("/quiz_request/<quiz_type>", methods=['GET', 'POST'])
 @login_required
-def quiz_request():
+def quiz_request(quiz_type):
     if request.method == 'GET':
-        categories = get_categories()
+        categories = [item for item in get_categories() if item.startswith(quiz_type)]
         return render_template('quiz/quiz_request.html', categories=categories)
     elif request.method == 'POST':
         session['category'] = request.form['category']
         return redirect(url_for('quiz.quiz'))
 
 
-@quiz.route("/quiz", methods=['GET', 'POST'])
+@quiz.route("/quiz/", methods=['GET', 'POST'])
 @login_required
 def quiz():
     category = session.get('category')

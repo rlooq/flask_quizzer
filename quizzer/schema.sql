@@ -28,3 +28,12 @@ CREATE TABLE quiz_score (
   score REAL NOT NULL DEFAULT 0,
   FOREIGN KEY (taker_id) REFERENCES user (id)
 );
+
+CREATE TABLE message (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  author_id INTEGER NOT NULL,
+  created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  subject TEXT NOT NULL,
+  body TEXT NOT NULL,
+  FOREIGN KEY (author_id) REFERENCES user (id)
+);
