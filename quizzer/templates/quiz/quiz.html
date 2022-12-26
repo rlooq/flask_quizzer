@@ -21,6 +21,7 @@ Quiz
       {% for option in question.options %}
       <input type="radio" name="{{ question.id }}" value="{{ option }}"> {{ option }}<br>
       {% endfor %}
+      <input class="invisible-option" type="radio" name="{{ question.id }}" value="I don't know" checked="checked">
     </div>
   </div>
 {% endfor %}

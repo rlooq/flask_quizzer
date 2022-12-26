@@ -2,7 +2,7 @@ from . import quiz
 from .qdb import get_qdb
 from ..db import get_db
 from ..auth import login_required
-from flask import render_template, g, request, redirect, session, url_for
+from flask import render_template, g, request, redirect, session, url_for, flash
 from tinydb import Query
 from dataclasses import dataclass
 
@@ -24,8 +24,6 @@ class Question():
 def get_questions(category=None):
     qdb = get_qdb()
     Entry = Query()
-    if not category:
-        category = "Trivia 1"
     questions = [
         Question(
             id=item.doc_id,
@@ -76,19 +74,23 @@ def quiz():
             if question.check_answer():
                 score +=1
         
-        weighed_score = round(score*10/len(questions), 1)
+        try:
+            weighed_score = round(score*10/len(questions), 1)
+        except ZeroDivisionError:
+            weighed_score = 0
         
-        db = get_db()
-        db.execute(
-                'INSERT INTO quiz_score (taker_id, quiz_taken, score)'
-                ' VALUES (?, ?, ?)',
-                (g.user['id'], category, weighed_score)
-            )
-        db.commit()
-        session.pop('category', None)    
+        if g.user:
+            try:
+                db = get_db()
+                db.execute(
+                    'INSERT INTO quiz_score (taker_id, quiz_taken, score)'
+                    ' VALUES (?, ?, ?)',
+                    (g.user['id'], category, weighed_score)
+                )
+                db.commit()
+                
+            except db.IntegrityError:
+                error = "This quiz has already been taken and registered"
+                flash(error)
+        session.pop('category', None)
         return render_template('quiz/quiz_result.html', questions=questions, score=score, category=category)
-    
-    
-
-    
-

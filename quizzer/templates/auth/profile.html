@@ -7,16 +7,22 @@
 {% block content %}
 
 <article class="message">
-    <div class="message-header is-dark">
-    <p class="is-size-5">PROFILE: &ThinSpace;{{ g.user['first_name'] | upper }} {{ g.user['last_name'] | upper }}
+    <div class="message-body">
+    <p class="is-size-3 has-text-weight-bold">{{ g.user['first_name'] | upper }} {{ g.user['last_name'] | upper }}
     </p>
-    </div>
-    
-    <div class="message-body">    
-      
-      <p class="is-readable"><strong>Username:</strong> {{ g.user['username'] }}</p>  
-      
-      <p class="is-readable"><strong>Full Name:</strong> {{ g.user['first_name'] }} {{ g.user['last_name'] }}</p>
+
+    <table class="table is-fullwidth">
+      <thead>
+        <tr><th>Username</th><th>Full Name</th><th>Role</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+        <td>{{ g.user['username'] }}</td>
+        <td>{{ g.user['first_name'] }} {{ g.user['last_name'] }}</td>
+        <td>{{ g.user['role'] | capitalize }}</td>
+        </tr>
+      </tbody>
+    </table>
   
     </div>
 </article><br>
@@ -24,11 +30,9 @@
 {% if scores %}
 
 <article class="message">
-  <div class="message-header is-dark">
-    <p class="is-size-5">HIGH SCORES</p>
-  </div>
   
   <div class="message-body">
+    <p class="is-size-3 has-text-weight-bold">QUIZ SCORES</p>
     <table class="table is-fullwidth">
       <thead>
         <tr><th>Date</th><th>Quiz</th><th class="has-text-right">Score</th></tr>

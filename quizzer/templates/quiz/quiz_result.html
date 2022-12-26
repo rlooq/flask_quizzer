@@ -7,6 +7,15 @@ Quiz Result
 
 {% block content %}
 
+{% if not g.user %}
+<article class="message is-danger">
+  <div class="message-body">    
+    <strong>NOTE:</strong>  The result of this quiz has <strong>not</strong> been recorded. To keep track of your results, and 
+    have access to many more quizzes, <strong>register</strong> and <strong>log in</strong>.
+  </div>
+</article>
+{% endif %}
+
 <h1 class="title">Your Result: {{ category }}</h1>
 
 <p class="subtitle has-text-right">The <strong>score</strong> is <strong>{{ score }}</strong> out of {{ questions | length }}</p>
@@ -19,7 +28,6 @@ Quiz Result
       <div class="message-body">
         {% for option in question.options %}
         {% if option == question.correct == question.attempt %}
-        
         <p>
             <span class="has-text-weight-bold">{{ option }}</span>
             <span class="icon-text">
@@ -41,8 +49,9 @@ Quiz Result
           <span>{{ option }}</span>
       </p>
             
-        {% endif %}
-        {% endfor %}
+      {% endif %}
+
+      {% endfor %}
       </div>
     </article>
     

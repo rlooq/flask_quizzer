@@ -1,10 +1,13 @@
 import os
 from flask import Flask, render_template
-
 import logging.config
 
-# Logging configuration so all messages have the same format
+
+# LOGGING CONFIGURATION
 def configure_logging():
+    """ Applies logging configuration so all messages have the same
+        format in Flask.
+    """
     logging.config.dictConfig(
         {
             "version": 1,
@@ -27,6 +30,9 @@ def configure_logging():
 # GENERAL ERROR HANDLERS
 def page_not_found(e):
     return render_template('errors/404.html'), 404
+
+def internal_server_error(e):
+    return render_template('errors/500.html'), 500
 
 
 # APPLICATION FACTORY
@@ -80,10 +86,7 @@ def create_app(test_config=None):
 
     from . import contact
     app.register_blueprint(contact.bp)
-    
-    # telling the logger it has started
-    app.logger.info(f"New app started in {app.config['ENVIRONMENT']}")
-    
+        
     return app
 
 

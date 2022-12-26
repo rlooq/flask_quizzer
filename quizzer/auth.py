@@ -74,7 +74,7 @@ def login():
             session['user_id'] = user['id']
             # logging successful users
             current_app.logger.info(f"{user['username']} logged in successfully")
-            return redirect(url_for('index'))
+            return redirect(url_for('auth.profile'))
 
         flash(error)
 

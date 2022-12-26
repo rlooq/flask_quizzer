@@ -83,6 +83,10 @@
     background: var(--mid-bg);
   }
 
+  .invisible-option {
+    display: none;
+  }
+
 
 
   
