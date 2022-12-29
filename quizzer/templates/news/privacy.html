@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}About{% endblock %} 
+
+
+
+{% block content %}
+
+
+
+<article class="message">
+    
+<div class="message-body is-readable has-text-justified">
+    <p class="has-text-centered"><img src="{{ url_for('static', filename='error.png') }}" alt="Error message"></p>
+
+    <h1 class="title has-text-centered">Legal Notice and Privacy Policy</h1>
+    
+    <p><em>Quizzers!</em> is the <strong>beta version</strong> of a very simple application used only for educational purposes. 
+    It has no affiliations with any business or for-profit institution. As such, it is provided free of charge, 
+    with no warranties of any kind. The service may be discontinued at any time without any obligations on our 
+    part regarding the quiz data stored up to that point. If that comes to pass, any information you have provided us with
+    will also be deleted.</p><br>
+    <p>We don't ask you for personal information unless it is truly needed to provide this free service, 
+    that is, to let you keep track of your results when taking quizzes. The only personal information 
+    we collect is your email address, exclusively for notification purposes. You are free to provide 
+    first and last name as well if you wish, but neither of them is required. We don't store any other 
+    personal information apart from the results of the quizzes you take within this application.</p><br>
+    <p>We don't share your information with anyone and none of it is visible to the public. 
+    <br>
+    
+    <p>As is true of most websites, certain information is gathered automatically by the server. This information 
+    may include Internet protocol (IP) addresses, browser type, Internet service provider (ISP), referring/exit pages,
+    the files viewed on our site (e.g. HTML pages, graphics, etc.), operating system, or date/time stamp data to analyze 
+    trends in the aggregate.</p><br>
+
+    <p>We will retain your email address and quiz results for as long as your account and/or the service is active. 
+    If you wish to terminate your account or request that we no longer use your information, please contact 
+    us at rlooq@yahoo.com.</p><br>
+    
+    <p>Upon request, we will also provide you with information about whether we hold your email, name or quiz 
+    results. You may access, correct, or request deletion of such information by logging into your 
+    account or by contacting us at rlooq@yahoo.com. We will respond to your request within a reasonable 
+    timeframe.</p><br>
+
+    <p class="subtitle">Authentication</p>
+    <p>We require authentication for all quiz management and data access features. Pages intended to be public 
+    are served over an SSL encrypted connection but do not require account authentication. We do not enforce 
+    password complexity requirements but recommend the following: passwords should be a minimum of 8 characters
+    and include a mix of uppercase, lowercase and symbols and numbers. Passwords are hashed and stored in a 
+    secure database. No plain text passwords are stored. We encourage users to periodically update passwords 
+    and never use a password shared with another website. </p><br>
+        
+        
+    <p class="subtitle">Session Management</p>
+        
+    <p>Each time a user is authenticated and logs in to this site, a unique session identifier is created which 
+    allows us to provide the quiz completion and correction service. This identifier doesn't track any other
+    information.</p>
+
+
+    
+    
+</div>
+</article>
+
+{% endblock %}

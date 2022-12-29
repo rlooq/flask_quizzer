@@ -115,3 +115,7 @@ def about():
 @bp.route('/help')
 def help():
     return render_template('news/help.html')
+
+@bp.route('/privacy')
+def privacy():
+    return render_template('news/privacy.html')

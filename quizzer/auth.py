@@ -74,6 +74,7 @@ def login():
             session['user_id'] = user['id']
             # logging successful users
             current_app.logger.info(f"{user['username']} logged in successfully")
+            flash("You are now logged in.")
             return redirect(url_for('auth.profile'))
 
         flash(error)
@@ -96,6 +97,7 @@ def load_logged_in_user():
 @bp.route('/logout')
 def logout():
     session.clear()
+    flash("You have been logged out.")
     return redirect(url_for('index'))
 
 
@@ -104,9 +106,7 @@ def login_required(view):
     def wrapped_view(**kwargs):
         if g.user is None:
             return redirect(url_for('auth.login'))
-
         return view(**kwargs)
-
     return wrapped_view
 
 

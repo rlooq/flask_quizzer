@@ -33,7 +33,7 @@
     <p class="is-readable has-text-justified pt-3">{{ item }}</p>
     {% endif %}
     {% endfor %}
-
+    
     <p class="has-text-right has-text-weight-bold is-readable is-blurred pt-2">
       {{ post['username'] | capitalize }} on <time datetime="{{ post['created'].strftime('%Y-%m-%d') }}">{{ post['created'].strftime('%d %b %Y') }}</time>
     </p>
@@ -53,15 +53,7 @@
 </article>
 
 
-
-
 {% endfor %}
-
-
-
-
-
-
 
 
 {% endblock content %}
